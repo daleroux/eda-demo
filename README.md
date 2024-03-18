@@ -1,4 +1,4 @@
-# Ⓐ Ansible EDA: eda-demo
+# Ⓐ Ansible EDA demo
 
 
 [![GitHub License](https://img.shields.io/github/license/daleroux/eda-demo)](https://github.com/daleroux/eda-demo/blob/main/LICENSE)[![Ansible Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Ansible-silver.svg)](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html)
@@ -41,6 +41,7 @@ Galaxy will eventually list the module docs within the UI, but until that is rea
 ## Using eda-demo
 
 ### There are three subdirectories, playbooks, rulebooks and bash_scripts
+### Modify the content of these directories so they work with your environment.
 ### More documentation to come...
 
 ## Licensing
