@@ -41,7 +41,7 @@ Galaxy will eventually list the module docs within the UI, but until that is rea
 ## Using eda-demo
 
 ### There are three subdirectories, playbooks, rulebooks and bash_scripts
-    These are provided as is for demo purpose, make sure to modify the above so they work in your environment
+### More documentation to come...
 
 ## Licensing
 
