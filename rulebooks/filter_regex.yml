@@ -1,0 +1,22 @@
+---
+- name: Regex Processing for hostnames
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    eda_input: "{{ ansible_eda.event.payload }}"  # access event payload
+
+  tasks:
+
+    - name: Print out the payload
+      debug:
+        msg: "{{ eda_input }}"
+
+    - name: Extract Server name from text
+      set_fact:
+       cacheable: yes
+       server_name: "{{ eda_input |  regex_replace('^.+:..', '') | regex_replace('down.+$', '')}}"
+
+    - name: Print server name
+      debug: 
+        msg: "{{ server_name }}"

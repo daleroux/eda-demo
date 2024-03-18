@@ -1,0 +1,12 @@
+---
+- name: Restart Apache server
+  hosts: "{{ ansible_eda.event.server_name }}"
+  become: true
+  tasks:
+
+    - name: Ensure httpd is enabled and running
+      systemd:
+        name: httpd
+        enabled: yes
+        state: restarted
+      

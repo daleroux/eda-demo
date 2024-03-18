@@ -1,0 +1,22 @@
+---
+- name: Send slack message
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  vars_files:
+   ./vars/hidden.yml
+  vars:
+      token:
+      msg:
+      username:
+      channel:
+
+  tasks:
+
+  - name: Send notification message via Slack
+    community.general.slack:
+      token: "{{ my_token }}"
+      msg: "{{ my_payload }}"  
+      username: dleroux
+      channel: dleroux-notifs

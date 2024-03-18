@@ -1,0 +1,49 @@
+---
+
+name: CI
+
+on:
+  # Run against all pushes (direct commits, also merged PRs)
+  push:
+  # Run against all Pull Requests to the main branch
+  pull_request:
+    branches: [main]
+  # Run once a week to ensure that even if there haven't been commits that we are still testing against latest version of GitHub Actions
+  # See: https://crontab.guru
+  schedule:
+    - cron: '7 21 * * 2'
+  # Enable manual pipeline execution
+  workflow_dispatch:
+
+concurrency:
+  group: '${{ github.workflow }}@${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@main
+
+      - name: Run pre-commit Linter
+        uses: pre-commit/action@main
+
+  docsite:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out code
+        uses: actions/checkout@main
+
+      - name: Setup Python
+        uses: actions/setup-python@main
+        with:
+          python-version: '3.10'
+
+      - name: Install antsibull-docs
+        run: pip install antsibull-docs --disable-pip-version-check
+
+      - name: Run antsibull-docs collection linter
+        run: antsibull-docs lint-collection-docs . --plugin-docs --skip-rstcheck

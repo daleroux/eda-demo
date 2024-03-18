@@ -1,0 +1,29 @@
+---
+- name: Install and configure Apache server
+  hosts: all
+  become: true
+  tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: present
+
+    - name: Ensure httpd is enabled and running
+      systemd:
+        name: httpd
+        enabled: yes
+        state: started
+
+    - name: Open port 80/tcp on firewalld
+      firewalld:
+        port: 80/tcp
+        permanent: yes
+        state: enabled
+        immediate: yes
+
+    - name: Open port 443/tcp on firewalld
+      firewalld:
+        port: 443/tcp
+        permanent: yes
+        state: enabled
+        immediate: yes
