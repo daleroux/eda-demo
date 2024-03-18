@@ -1,4 +1,4 @@
-# Ⓐ Ansible EDA: daleroux.eda-demo
+# Ⓐ Ansible EDA: eda-demo
 
 
 [![GitHub License](https://img.shields.io/github/license/daleroux/eda-demo)](https://github.com/daleroux/eda-demo/blob/main/LICENSE)[![Ansible Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Ansible-silver.svg)](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html)
