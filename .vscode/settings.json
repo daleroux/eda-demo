@@ -31,5 +31,6 @@
       "foreground": "#000000",
       "iconColor": "#FFFF00"
     }
-  }
+  },
+  "ansible.python.interpreterPath": "/bin/python"
 }

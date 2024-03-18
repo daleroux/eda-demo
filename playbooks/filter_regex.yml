@@ -12,11 +12,6 @@
       debug:
         msg: "{{ eda_input }}"
 
-    - name: Extract Server name from text
-      set_fact:
-       cacheable: yes
-       server_name: "{{ eda_input |  regex_replace('^.+:..', '') | regex_replace('down.+$', '')}}"
-
     - name: Trying to set Artifacts
       ansible.builtin.set_stats:
         data:
