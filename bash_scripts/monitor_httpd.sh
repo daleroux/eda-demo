@@ -23,7 +23,7 @@ while true ; do
     # Check if the status is not 200
     if [ "$STATUS" -ne 200 ]; then
         echo "Site $SITE is not responding with status 200. Response code: $STATUS"
-        curl -H 'Content-Type: application/json' -d "{\"payload\": \"$SITE down\"}" localhost:5000/endpoint
+        curl -H 'Content-Type: application/json' -d "{\"payload\": \"$SITE down\"}" eda.nleroux.ca:5000/endpoint
     fi
   done
 

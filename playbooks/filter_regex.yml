@@ -18,6 +18,6 @@
           server_name: "{{ eda_input |  regex_replace('^.+:..', '') | regex_replace('down.+$', '')}}"
         per_host: no
 
-    - name: Print server name
-      ansible.builtin.debug: 
-        msg: "{{ server_name }}"
+    #- name: Print server name
+    #  ansible.builtin.debug: 
+    #    msg: "{{ server_name }}"
