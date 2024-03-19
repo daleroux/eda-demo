@@ -5,7 +5,7 @@
 
 # Spinner
 spinner="/|\\-/|\\-"
-total_cycles=40 # Total number of cycles to achieve approximately 60 seconds
+total_cycles=38 # Total number of cycles to achieve approximately 60 seconds
 
 EDA=eda.nleroux.ca
 
