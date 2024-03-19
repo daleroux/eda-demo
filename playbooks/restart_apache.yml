@@ -5,7 +5,7 @@
   tasks:
 
     - name: Ensure httpd is enabled and running
-      systemd:
+      ansible.builtin.systemd:
         name: httpd
         enabled: yes
         state: restarted

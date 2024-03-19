@@ -9,7 +9,7 @@
   tasks:
 
     - name: Print out the payload
-      debug:
+      ansible.builtin.debug:
         msg: "{{ eda_input }}"
 
     - name: Trying to set Artifacts
@@ -19,5 +19,5 @@
         per_host: no
 
     - name: Print server name
-      debug: 
+      ansible.builtin.debug: 
         msg: "{{ server_name }}"
