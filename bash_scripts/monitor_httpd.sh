@@ -3,14 +3,19 @@
 # Dan Leroux
 # Block Height 834701
 
+# Modify the following variables so they work with your environment
+# EDA=<FULLY_QUALIFIED_HOST_NAME_OF_YOUR_EDA_CONTROLLER>
+# SITES=List of servers you'll monitor the httpd response
+
+# EDA CONTROLLER 
+EDA=eda.nleroux.ca
+
+# LIST OF LINUX HTTPD SERVERS THIS BASH SCRIPT WILL MONITOR
+SITES=("servera" "serverd" "r7a")
+
 # Spinner
 spinner="/|\\-/|\\-"
 total_cycles=38 # Total number of cycles to achieve approximately 60 seconds
-
-EDA=eda.nleroux.ca
-
-# List of websites to check
-SITES=("servera" "serverd" "r7a")
 
 # Loop forever every two minutes
 while true ; do
@@ -27,7 +32,7 @@ while true ; do
     fi
   done
 
-  # Spin the wheel for approx 80 seconds
+  # Spin the wheel for approx 60 seconds
   for (( cycle=1; cycle<=total_cycles; cycle++ )); do
     for i in {0..7}; do
       echo -ne "${spinner:i:1}" "\r"
