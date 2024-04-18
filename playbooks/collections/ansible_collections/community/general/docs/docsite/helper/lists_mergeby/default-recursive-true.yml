@@ -21,4 +21,4 @@ list2:
       list:
         - patch_value
   - name: myname02
-    param01: [3, 4, 4, {key: value}]
+    param01: [3, 4, 4, key: value]
