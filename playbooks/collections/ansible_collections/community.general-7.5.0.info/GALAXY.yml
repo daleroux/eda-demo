@@ -1,3 +1,4 @@
+---
 download_url: https://galaxy.ansible.com/api/v3/plugin/ansible/content/published/collections/artifacts/community-general-7.5.0.tar.gz
 format_version: 1.0.0
 name: general

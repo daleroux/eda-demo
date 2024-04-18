@@ -4,10 +4,9 @@
   connection: local
   gather_facts: false
   vars:
-    eda_input: "{{ ansible_eda.event.payload }}"  # access event payload
+    eda_input: "{{ ansible_eda.event.payload }}" # access event payload
 
   tasks:
-
     - name: Print out the payload
       ansible.builtin.debug:
         msg: "{{ eda_input }}"
@@ -16,5 +15,4 @@
       ansible.builtin.set_stats:
         data:
           server_name: "{{ eda_input |  regex_replace('^.+:..', '') | regex_replace('down.+$', '')}}"
-        per_host: no
-
+        per_host: false

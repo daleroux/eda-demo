@@ -11,19 +11,19 @@
     - name: Ensure httpd is enabled and running
       systemd:
         name: httpd
-        enabled: yes
+        enabled: true
         state: started
 
     - name: Open port 80/tcp on firewalld
       firewalld:
         port: 80/tcp
-        permanent: yes
+        permanent: true
         state: enabled
-        immediate: yes
+        immediate: true
 
     - name: Open port 443/tcp on firewalld
       firewalld:
         port: 443/tcp
-        permanent: yes
+        permanent: true
         state: enabled
-        immediate: yes
+        immediate: true
