@@ -40,9 +40,27 @@ Galaxy will eventually list the module docs within the UI, but until that is rea
 
 ## Using eda-demo
 
-### There are three subdirectories, playbooks, rulebooks and bash_scripts
-### Modify the content of these directories so they work with your environment.
-### More documentation to come...
+### Step 1: Installing and Configuring HTTPD on a few RHEL/Fedora Linux VMs
+
+Create an **index.html** file under the **/var/www/html** directory with proper permissions so that a curl command on your linux VM's will return a "200 OK". Here's an example of how you can test this:
+
+`% curl -s -o /dev/null -w "%{http_code}" your_linux_vm`
+
+`200` 
+
+Under the bash_script directory in the git repo, you'll find a **monitor_httpd.sh** script, modify the following variables so that it reflects your environment:
+
+**EDA**   <-- your fully qualified EDA controller name.
+
+**SITES** <-- provide the names of your linux_vm's on which httpd is configured and running.  
+
+You then start the **monitor_httpd.sh** script which will scan your VM's at every minute, and display a spinning wheel. 
+
+Stop httpd from running on one of your linux VM's with command:
+
+`% sudo systemctl stop httpd`
+
+The monitor_httpd.sh script will notice httpd is down on that vm and send a curl command containing a payload to your EDA controller.
 
 ## Licensing
 
