@@ -8,8 +8,9 @@
        port: 5000
 
   rules:
-
-   - condition: event.payload is defined
+    
+   - name: Filter out the name of the system
+     condition: event.payload is defined
      action:
         run_job_template:
           name: Filter_Regex
