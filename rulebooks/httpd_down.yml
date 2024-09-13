@@ -9,8 +9,7 @@
 
   rules:
 
-   - name: Filter Payload for hostname
-     condition: event.payload is defined
+   - condition: event.payload is defined
      action:
         run_job_template:
           name: Filter_Regex
