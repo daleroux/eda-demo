@@ -3,23 +3,21 @@
   hosts: all
 
   sources:
-   - ansible.eda.webhook:
-       host: 0.0.0.0
-       port: 5000
+    - ansible.eda.webhook:
+        host: "0.0.0.0"
+        port: 5000
 
   rules:
-
-   - condition: event.payload is defined
-     action:
+    - condition: event.payload is defined
+      action:
         run_job_template:
           name: Filter_Regex
           organization: Default
           post_events: true
 
-
-   - name: Restart apache on the server
-     condition: event.server_name is defined
-     action:
+    - name: Restart apache on the server
+      condition: event.server_name is defined
+      action:
         run_job_template:
           name: Restart_Apache
           organization: Default
