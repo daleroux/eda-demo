@@ -10,12 +10,11 @@
 
   rules:
     - name: EDA | Webhook | Run Playbook to clear queue
-      condition: event.payload.host is defined
+      condition: event.payload is defined
       actions:
         run_job_template:
           name: demojt
           organization: Default
-          set_facts: true
           job_args:
             extra_vars:
-                my_payload: "{{ event.payload.host }}"
+                my_payload: "some payload here"
