@@ -1,0 +1,21 @@
+---
+- name: EDA | AlertManager | Listen for events from Splunk
+  hosts: localhost
+
+  sources:
+    - name: Listen for Queue alert in Splunk
+      ansible.eda.webhook:
+        port: 5000
+        host: 0.0.0.0
+
+  rules:
+    - name: EDA | Webhook | Run Playbook to clear queue
+      condition: event.payload.min_queue_size == 5
+      actions:
+        run_job_template:
+          name: demojt
+          organization: Default
+          set_facts: true
+          job_args:
+            extra_vars:
+              host: "{{ event.payload.host }}"
