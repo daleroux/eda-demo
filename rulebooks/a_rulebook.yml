@@ -10,7 +10,7 @@
 
   rules:
     - name: EDA | Webhook | Run Playbook to clear queue
-      condition: event.payload.min_queue_size == 5
+      condition: event.payload.host is defined
       actions:
         run_job_template:
           name: demojt
