@@ -17,4 +17,4 @@
           organization: Default
           job_args:
             extra_vars:
-                my_payload: "some payload here"
+              my_payload: "some payload here for test"
