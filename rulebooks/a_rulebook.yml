@@ -12,10 +12,10 @@
     - name: EDA | Webhook | Run Playbook to clear queue
       condition: event.payload.min_queue_size == 5
       actions:
-        - run_job_template:
-            name: demojt
-            organization: Default
-            set_facts: true
-            job_args:
-              extra_vars:
-                host: "{{ event.payload.host }}"
+        run_job_template:
+          name: demojt
+          organization: Default
+          set_facts: true
+          job_args:
+            extra_vars:
+                my_payload: "{{ event.payload.host }}"
