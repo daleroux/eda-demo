@@ -11,7 +11,7 @@
   rules:
     - name: EDA | Webhook | Run Playbook to clear queue
       condition: event.payload is defined
-      actions:
+      action:
         run_job_template:
           name: demojt
           organization: Default
